@@ -21,20 +21,6 @@ function getComputerChoice()
 }
 
 
-/**
- * the User's choice
- * the user inputs either rock, paper or scissors in the prompt.
- */
-let playerSelection = String(prompt("Rock, Paper, Scissors, Shoot!!!: ")); 
-
-/**
- * the Computer's choice
- * the computer randomly generates either rock, paper or
- * scissors with the help of getComputerChoice().
- */
-let computerSelection = getComputerChoice();
-
-
 
 /**
  * playRound: function that takes user and computer input
@@ -72,22 +58,83 @@ function playRound(playerSelection, computerSelection)
   /* For PaperxScissors = this makes a LOSE */
   else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors")
   {
-    return " You LOST!, you played paper and computer played scissors!";
+    return "You LOST!, you played paper and computer played scissors!";
   }
 
   /* User plays SCISSORS!!! */
   /* For ScissorsxRock = this makes a LOSE */
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock")
   {
-    return " You LOST!, you played scissors and computer played rock!";
+    return "You LOST!, you played scissors and computer played rock!";
   }
   /* For ScissorsxPaper = this makes a WIN */
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper")
   {
-    return " You WIN!!!, you played scissors and computer played paper!";
+    return "You WIN!!!, you played scissors and computer played paper!";
   }
 }
 
 
 
-console.log(playRound(playerSelection, computerSelection));
+/**
+ * game: plays 5 round game of rock, paper, scissors
+ */
+function game()
+{
+  /**
+  * current points for computer and player
+  */
+  let playerPoints = 0;
+  let computerPoints = 0;
+
+  for (var i = 0; i < 5; i++)
+  {
+    /**
+    * the User's choice
+    * the user inputs either rock, paper or scissors in the prompt.
+    */
+    let playerSelection = String(prompt("Rock, Paper, Scissors, Shoot!!!: ")); 
+
+    /**
+    * the Computer's choice
+    * the computer randomly generates either rock, paper or
+    * scissors with the help of getComputerChoice().
+    */
+    let computerSelection = getComputerChoice();
+
+
+    console.log(playRound(playerSelection, computerSelection));
+  
+
+    // Update points based on the result of each round
+    if (playRound(playerSelection, computerSelection).startsWith("You LOST")) 
+    {
+      computerPoints++;
+    } 
+    else if (playRound(playerSelection, computerSelection).startsWith("You WIN")) 
+    {
+      playerPoints++;
+    }
+  }
+
+
+  const scores = `Computer Score: ${computerPoints} 
+  Player Score: ${playerPoints}`;
+
+  if (computerPoints > playerPoints)
+  {
+    return scores + "\nYou LOSE!";
+  }
+
+  else if (computerPoints < playerPoints)
+  {
+    return scores + "\nYou WIN!!!";
+  }
+
+  else
+  {
+    return scores + "\nA DRAW!";
+  }
+}
+
+console.log(game());
