@@ -55,36 +55,36 @@ function playRound(playerSelection, computerSelection)
   /* For RockxPaper = this makes a LOSE */
   else if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper")
   {
-
+    return "You LOST!, you played rock and computer played paper!";
   }
   /* For RockxScissors = this makes a WIN */
   else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors")
   {
-
+    return "You WIN!!!, you played rock and computer played scissors!";
   }
 
   /* User plays PAPER!!! */
   /* For PaperxRock = this makes a WIN */
   else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock")
   {
-
+    return "You WIN!!!, you played paper and computer played rock!";
   }
   /* For PaperxScissors = this makes a LOSE */
   else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors")
   {
-
+    return " You LOST!, you played paper and computer played scissors!";
   }
 
   /* User plays SCISSORS!!! */
   /* For ScissorsxRock = this makes a LOSE */
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock")
   {
-
+    return " You LOST!, you played scissors and computer played rock!";
   }
   /* For ScissorsxPaper = this makes a WIN */
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper")
   {
-
+    return " You WIN!!!, you played scissors and computer played paper!";
   }
 }
 
